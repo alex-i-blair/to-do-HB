@@ -4,6 +4,7 @@ import {
     getTodos,
     logout,
     deleteAllTodos, 
+    completeTodo
 } from '../fetch-utils.js';
 import { renderTodo } from '../render-utils.js';
 
@@ -32,6 +33,11 @@ async function displayTodos() {
     todosEl.textContent = '';
     for (let item of todoList) {
         const todoEl = renderTodo(item);
+        todoEl.addEventListener('click', async() => {
+            await completeTodo(item.id);
+            await displayTodos();
+            
+        });
         todosEl.append(todoEl);
     }
     // todosEl.textContent = todoEl.todos;

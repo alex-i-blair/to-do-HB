@@ -1,5 +1,5 @@
-import { completeTodo } from './fetch-utils.js';
-
+// import { completeTodo } from './fetch-utils.js';
+// import { displayTodos } from './todos.js';
 export function renderTodo(todo) {
     // create a div and a p tag
     // depending on whether the todo is complete, give the div the appropriate css class ('complete' or 'incomplete')
@@ -8,9 +8,7 @@ export function renderTodo(todo) {
         todoEl.classList.add('complete', 'todo');
     } else {
         todoEl.classList.add('incomplete', 'todo');
-        todoEl.addEventListener('click', async() => {
-            await completeTodo(todo.id);
-        });
+        
     }
     
 
